@@ -4,10 +4,14 @@
     padding: 0px;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 body {
     margin: 0px;
     padding: 0px;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .wrapper {
@@ -78,7 +82,7 @@ section {
 .kolom .header {
     font-size: 30px;
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #213555;
 }
 
@@ -104,6 +108,125 @@ a.tombol-biru {
 a.tombol-biru:hover {
     background: #64CCC5;
     text-decoration: none;
+}
+
+/*BLOG */
+.blog-part {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.blog-part a {
+    text-decoration: none;
+}
+
+.blog-part ul {
+    list-style: none;
+}
+
+.blog body{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+
+#blog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+    border-top: 1px solid #213555;
+    border-bottom: 1px solid #213555;
+}
+
+.blog-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.blog-heading span{
+    color: #4F709C;
+}
+
+.blog-heading h3 {
+    font-size: 2.4rem;
+    color: #213555;
+    font-weight: 600;
+}
+
+.blog-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    flex-wrap: wrap;
+}
+
+.blog-box {
+    width: 300px;
+    background-color: #ffffff;
+    border: 1px solid #4F709C;
+    margin: 20px;
+}
+
+.blog-img{
+    width: 100%;
+    height: auto;
+}
+
+.blog-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.blog-text{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-text span{
+    color: #4F709C;
+    font-size: 0.9rem;
+}
+
+.blog-text .blog-title{
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-align: center;
+    color: #213555;
+}
+
+.blog-text .blog-title:hover{
+    color: #E5D283;
+    transition: all ease 0.3s;
+}
+
+.blog-text p{
+    color: #526D82;
+    font-size: 0.9rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 20px 0px;
+}
+
+.blog-text a{
+    color: #213555;
+}
+
+.blog-text a:hover{
+    color: #E5D283;
+    transition: all ease 0.3s;
 }
 
 /* SLIDER HOME */
@@ -155,6 +278,5 @@ a.tombol-biru:hover {
 
 .slider-nav a:hover {
     opacity: 1;
-
 }
 
