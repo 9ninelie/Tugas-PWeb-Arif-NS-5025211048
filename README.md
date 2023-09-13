@@ -9,9 +9,9 @@ GoGym adalah website yang menampung informasi seputar dunia kesehatan dan menyed
 - Navigation bar untuk menu menu yang akan ada.
 - Deskripsi singkat GoGym dan slider bar tentang gym.
 - Thumbnail singkat mengenai konten yang tersedia.
+- Contact profile.
 
 **To Do:**
 - Add sign in and log in page.
 - Add community page (forum).
 - Membuat page berisi konten lengkap.
-- Add contact profile.
