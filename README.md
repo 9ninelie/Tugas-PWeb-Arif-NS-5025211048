@@ -1,5 +1,5 @@
 ### Nama | NRP: Arif Nugraha Santosa | 5025211048
-Tugas Pemrograman Web 1: Membuat website sederhana dengan menggunakan HTML dan CSS.
+Tugas Pemrograman Web 2: Mengaplikasikan animation.
 
 ### Topik: Website GoGym
 **Deskripsi:** \
