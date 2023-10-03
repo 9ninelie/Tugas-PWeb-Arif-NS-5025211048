@@ -1,0 +1,122 @@
+<!-- ref 
+https://www.youtube.com/watch?v=j59qQ7YWLxw
+https://www.youtube.com/watch?v=cHkN82X3KNU
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 4 - Kalkulator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="bg-secondary d-flex p-2 align-items-center justify-content-center" style="height: 100vh;">
+
+            <div class="bg-light-subtle border border-4 rounded-4 p-4">
+                <!-- <div class="d-flex justify-content-center" style="margin: 20px 0;">
+                    <input class="rounded" style="text-align: right; width: 300px; font-size: 40px;" type="text" id="display">
+                </div> -->
+                <div class="d-flex justify-content-center" style="margin: 20px 0;">
+                    <p style="text-align: right; width: 300px; height: 20px; font-size: 40px;" type="text" id="display"></p>
+                </div>
+                <!-- row 1 -->
+                <div class="d-flex justify-content-center">
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="7">7</button>
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="8">8</button>
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="9">9</button>
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="+">+</button>
+                </div>
+                <!-- row 2 -->
+                <div class="d-flex justify-content-center">
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="4">4</button>
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="5">5</button>
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="6">6</button>
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="-">-</button>
+                </div>
+                <!-- row 3 -->
+                <div class="d-flex justify-content-center">
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="1">1</button>
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="2">2</button>
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="3">3</button>
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="*">×</button>
+                </div>
+                <!-- row 4 -->
+                <div class="d-flex justify-content-center">
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value=".">.</button>
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="0">0</button>
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="00">00</button>
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="/">÷</button>
+                </div>
+                <!-- row 4 -->
+                <div class="d-flex justify-content-center">
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="C">C</button>
+                    <button class="rounded-circle" style="width: 60px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="Del">Del</button>
+                    <button class="rounded-pill" style="width: 145px; height: 60px; font-size: 20px; cursor: pointer; margin: 10px" data-value="=">=</button>
+                </div> 
+            </div>
+    </div>
+    
+    <!-- bootstrap -->
+</body>
+<script>
+    const display = document.getElementById("display");
+    const buttons = document.querySelectorAll("button");
+    const specialChars = ["*", "/", "-", "+", "="];
+    let output = "";
+
+    //Define function to calculate based on button clicked.
+    const calculate = (btnValue) => {
+        if (btnValue === "=" && output !== "") {
+            //If output has '%', replace with '/100' before evaluating.
+            output = eval(output);
+        } else if (btnValue === "C") {
+            output = "";
+        } else if (btnValue === "Del") {
+            //If DEL button is clicked, remove the last character from the output.
+            output = output.toString().slice(0, -1);
+        } else {
+            //If output is empty and button is specialChars then return
+            if (output === "" && specialChars.includes(btnValue)) return;
+            output += btnValue;
+        }
+        display.innerHTML = output;
+    };
+
+    //Add event listener to buttons, call calculate() on click.
+    buttons.forEach((button) => {
+    //Button click listener calls calculate() with dataset value as argument.
+        button.addEventListener("click", (e) => calculate(e.target.dataset.value));
+    });
+</script>
+<!-- <script>
+    const display = document.querySelector(".display");
+    const buttons = document.querySelectorAll("button");
+    const specialChars = ["*", "/", "+", "-", "="];
+    
+    let output = "";
+
+    const calculate = (btnValue) => {
+        if (btnValue === "=" && output !== ""){
+            output = eval(output);
+        }
+        else if (btnValue === "C"){
+            output = "";
+        }
+        else if (btnValue === "Del"){
+            output = output.toString().slice(0,-1);
+        }
+        else {
+            if (output === "" && specialChars.includes(btnValue)) return;
+            output += btnValue;
+        }
+        display.value = output;
+    };
+
+    buttons.forEach((button) => {
+        button.addEventListener("click", (e) => calculate(e.target.dataset.value));
+    });
+
+</script> -->
+</html>
